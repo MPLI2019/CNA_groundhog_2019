@@ -47,8 +47,8 @@ int Groundhog::calcul_period(string days)
 
     while (days != "STOP") {
         cin >> days;
-        if (is_number(days) == false)
-            exit (84);
+//        if (is_number(days) == false)
+//            exit (84);
         stringstream geek(days);
         geek >> this->i;
        
