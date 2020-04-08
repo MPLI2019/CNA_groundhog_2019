@@ -25,7 +25,6 @@ class Groundhog
         ~Groundhog(void);
         int calcul_period(std::string);
         std::string getArg(char const **);
-        void help(char const **);
 
     private:
         char data[200];
@@ -37,5 +36,9 @@ class Groundhog
         int r;
         int alert;
 };
+
+void help(char const **);
+bool is_num(const char *s);
+bool is_number(const std::string& s);
 
 #endif /* !Grounhdog */

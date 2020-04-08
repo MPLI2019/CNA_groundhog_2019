@@ -5,10 +5,7 @@
 ** CNA_main
 */
 
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <sstream>
+
 #include "main.hpp"
 
 using namespace std;
@@ -21,20 +18,11 @@ Groundhog::Groundhog()
 Groundhog::~Groundhog()
 {}
 
-bool is_num(const char *s) {
-    for (const char *c = s; *c; ++c) {
-        if (!std::isdigit(*c)) {
-            return false;
-        }
-    }
-    return true;
-}
 
-bool is_number(const std::string& s)
+string Groundhog::getArg(char const **argv)
 {
-    std::string::const_iterator it = s.begin();
-    while (it != s.end() && std::isdigit(*it)) ++it;
-    return !s.empty() && it == s.end();
+    std::string period(argv[1]);
+    return (period);
 }
 
 int Groundhog::calcul_period(string days)
@@ -66,18 +54,6 @@ int Groundhog::calcul_period(string days)
     return 0;
 }
 
-string Groundhog::getArg(char const **argv)
-{
-    std::string period(argv[1]);
-    return (period);
-}
-
-void Groundhog::help(char const **argv)
-{
-    if (argv[1][0] == '-' && argv[1][1] == 'h' && argv[1][2] == '\0')
-        std::cout << "SYNOPSIS\n\t./groundhog period\n\nDESCRIPTION\n\tperiod\t\tthe number of days defining a period" << std::endl;
-}
-
 
 int main(int ac, char const *av[])
 {
@@ -89,7 +65,7 @@ int main(int ac, char const *av[])
         return 84;
     if (ac > 2)
         return 84;
-    program.help(av);
+    help(av);
     program.calcul_period(program.getArg(av));
     return 0;
 }

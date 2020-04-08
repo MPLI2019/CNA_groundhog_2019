@@ -4,7 +4,8 @@ CC	= g++
 
 RM	= rm -f
 
-SRCS	= ./src/main.cpp 
+SRCS	= src/main.cpp \
+		  src/func.cpp 
 
 OBJS	= $(SRCS:.cpp=.o)
 
